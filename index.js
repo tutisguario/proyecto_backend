@@ -1,4 +1,5 @@
 import express from 'express'; //trae la libreria Express a mi proyecto
+import mongoose from 'mongoose'; //trae la libreria Mongoose a mi proyecto
 
 const app = express(); //crea una instancia de la aplicación Express
 
@@ -15,6 +16,9 @@ app.post('/', (req, res) => { //sirve para recibir datos enviados por el cliente
         data
     });
     });
+
+await mongoose.connect('mongodb://localhost:27017/mi_base_de_datos'); //conecta a la base de datos MongoDB
+console.log('Conectado a la base de datos MongoDB');
 
 app.listen(3000, () => {
     console.log('Servidor escuchando en http://localhost:3000');
